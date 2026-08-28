@@ -1,0 +1,63 @@
+<svg width="680" height="470" viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+<title>Logical topology - Tlou Amusement Arcade &amp; Family Fun Centre</title>
+<defs>
+<marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<rect width="680" height="470" fill="#ffffff"/>
+
+<rect x="270" y="10" width="140" height="40" rx="8" fill="#EDEFF2" stroke="#8A93A3" stroke-width="1"/>
+<text x="340" y="35" text-anchor="middle" font-size="14" font-weight="600" fill="#20242C">ISP (WAN)</text>
+<line x1="340" y1="50" x2="340" y2="80" stroke="#333333" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+<rect x="230" y="80" width="220" height="56" rx="8" fill="#DCEBFB" stroke="#3B8BD4" stroke-width="1"/>
+<text x="340" y="104" text-anchor="middle" font-size="14" font-weight="600" fill="#0F3E6E">Router (inter-VLAN + NAT)</text>
+<text x="340" y="123" text-anchor="middle" font-size="11" fill="#0F3E6E">WAN 192.168.54.144/30</text>
+<line x1="340" y1="136" x2="340" y2="172" stroke="#333333" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+<rect x="260" y="172" width="160" height="40" rx="8" fill="#DCEBFB" stroke="#3B8BD4" stroke-width="1"/>
+<text x="340" y="197" text-anchor="middle" font-size="14" font-weight="600" fill="#0F3E6E">Core switch (trunk)</text>
+
+<path d="M290 212V235H80V270" fill="none" stroke="#333333" stroke-width="1.2" marker-end="url(#arrow2)"/>
+<path d="M310 212V235H220V270" fill="none" stroke="#333333" stroke-width="1.2" marker-end="url(#arrow2)"/>
+<path d="M340 212V270" fill="none" stroke="#333333" stroke-width="1.2" marker-end="url(#arrow2)"/>
+<path d="M370 212V235H460V270" fill="none" stroke="#333333" stroke-width="1.2" marker-end="url(#arrow2)"/>
+<path d="M390 212V235H600V270" fill="none" stroke="#333333" stroke-width="1.2" marker-end="url(#arrow2)"/>
+
+<rect x="10" y="270" width="140" height="62" rx="8" fill="#DFF3EC" stroke="#2FA57D" stroke-width="1"/>
+<text x="80" y="292" text-anchor="middle" font-size="13" font-weight="600" fill="#0E5A3F">VLAN 10 Admin</text>
+<text x="80" y="310" text-anchor="middle" font-size="11" fill="#0E5A3F">192.168.54.112/28</text>
+<text x="80" y="325" text-anchor="middle" font-size="11" fill="#0E5A3F">gw .113</text>
+
+<rect x="150" y="270" width="140" height="62" rx="8" fill="#DFF3EC" stroke="#2FA57D" stroke-width="1"/>
+<text x="220" y="292" text-anchor="middle" font-size="13" font-weight="600" fill="#0E5A3F">VLAN 20 Arcade</text>
+<text x="220" y="310" text-anchor="middle" font-size="11" fill="#0E5A3F">192.168.54.64/27</text>
+<text x="220" y="325" text-anchor="middle" font-size="11" fill="#0E5A3F">gw .65</text>
+
+<rect x="270" y="270" width="140" height="62" rx="8" fill="#DFF3EC" stroke="#2FA57D" stroke-width="1"/>
+<text x="340" y="292" text-anchor="middle" font-size="13" font-weight="600" fill="#0E5A3F">VLAN 30 Cafe</text>
+<text x="340" y="310" text-anchor="middle" font-size="11" fill="#0E5A3F">192.168.54.96/28</text>
+<text x="340" y="325" text-anchor="middle" font-size="11" fill="#0E5A3F">gw .97</text>
+
+<rect x="390" y="270" width="140" height="62" rx="8" fill="#FCEFDA" stroke="#D98E2F" stroke-width="1"/>
+<text x="460" y="292" text-anchor="middle" font-size="13" font-weight="600" fill="#7A4A0C">VLAN 40 Guest</text>
+<text x="460" y="310" text-anchor="middle" font-size="11" fill="#7A4A0C">192.168.54.0/26</text>
+<text x="460" y="325" text-anchor="middle" font-size="11" fill="#7A4A0C">gw .1 (isolated)</text>
+
+<rect x="530" y="270" width="140" height="62" rx="8" fill="#FBE1DE" stroke="#D95F52" stroke-width="1"/>
+<text x="600" y="292" text-anchor="middle" font-size="13" font-weight="600" fill="#7A241A">VLAN 50 Print-zone</text>
+<text x="600" y="310" text-anchor="middle" font-size="11" fill="#7A241A">192.168.54.136/29</text>
+<text x="600" y="325" text-anchor="middle" font-size="11" fill="#7A241A">gw .137 (CR8)</text>
+
+<line x1="340" y1="212" x2="340" y2="380" stroke="#333333" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrow2)"/>
+<rect x="270" y="380" width="140" height="62" rx="8" fill="#EBE1F7" stroke="#8355C9" stroke-width="1"/>
+<text x="340" y="402" text-anchor="middle" font-size="13" font-weight="600" fill="#3E1F73">VLAN 60 Services</text>
+<text x="340" y="420" text-anchor="middle" font-size="11" fill="#3E1F73">192.168.54.128/29</text>
+<text x="340" y="435" text-anchor="middle" font-size="11" fill="#3E1F73">gw .129 (DHCP/DNS)</text>
+
+<line x1="220" y1="332" x2="600" y2="332" stroke="#3B8BD4" stroke-width="1" opacity="0.6" stroke-dasharray="3 3"/>
+<text x="410" y="350" text-anchor="middle" font-size="11" fill="#333333">Arcade + Cafe permitted to Print-zone (CR8) — Guest blocked from all internal VLANs</text>
+
+<text x="340" y="462" text-anchor="middle" font-size="11" fill="#666666">CMPG325-2026-124 — Tlou Amusement Arcade &amp; Family Fun Centre — Logical Topology</text>
+</svg>
