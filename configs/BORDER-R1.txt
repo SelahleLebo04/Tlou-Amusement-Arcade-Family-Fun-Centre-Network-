@@ -1,0 +1,182 @@
+
+Building configuration...
+
+Current configuration : 3757 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname BORDER-R1
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+ipv6 dhcp pool LAN-V6
+ dns-server FD54:ACDE:2026:60::10
+ domain-name tlou.local
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX15242PBW-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description Trunk to CORE-SW
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.10
+ description ADMIN
+ encapsulation dot1Q 10
+ ip address 192.168.54.113 255.255.255.240
+ ip helper-address 192.168.54.130
+ ip nat inside
+ ipv6 address FD54:ACDE:2026:10::1/64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server LAN-V6
+!
+interface GigabitEthernet0/0.20
+ description ARCADE
+ encapsulation dot1Q 20
+ ip address 192.168.54.65 255.255.255.224
+ ip helper-address 192.168.54.130
+ ipv6 address FD54:ACDE:2026:20::1/64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server LAN-V6
+!
+interface GigabitEthernet0/0.30
+ description CAFE
+ encapsulation dot1Q 30
+ ip address 192.168.54.97 255.255.255.240
+ ip helper-address 192.168.54.130
+ ipv6 address FD54:ACDE:2026:30::1/64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server LAN-V6
+!
+interface GigabitEthernet0/0.40
+ description GUEST
+ encapsulation dot1Q 40
+ ip address 192.168.54.1 255.255.255.192
+ ip helper-address 192.168.54.130
+ ip nat inside
+ ip access-group GUEST-IN in
+ ipv6 traffic-filter GUEST6-IN in
+ ipv6 address FD54:ACDE:2026:40::1/64
+!
+interface GigabitEthernet0/0.50
+ description PRINT-ZONE
+ encapsulation dot1Q 50
+ ip address 192.168.54.137 255.255.255.248
+ ip access-group TO-PRINTZONE out
+ ipv6 traffic-filter TO-PRINTZONE6 out
+ ipv6 address FD54:ACDE:2026:50::1/64
+!
+interface GigabitEthernet0/0.60
+ description SERVICES
+ encapsulation dot1Q 60
+ ip address 192.168.54.129 255.255.255.248
+ ipv6 address FD54:ACDE:2026:60::1/64
+!
+interface GigabitEthernet0/1
+ description WAN to ISP
+ ip address 192.168.54.145 255.255.255.252
+ ip nat outside
+ duplex auto
+ speed auto
+ ipv6 address FD54:ACDE:2026:FFFF::1/64
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip nat inside source list 1 interface GigabitEthernet0/1 overload
+ip classless
+ip route 0.0.0.0 0.0.0.0 192.168.54.146 
+!
+ip flow-export version 9
+!
+ipv6 route ::/0 FD54:ACDE:2026:FFFF::2
+!
+access-list 1 permit 192.168.54.0 0.0.0.63
+access-list 1 permit 192.168.54.112 0.0.0.15
+ip access-list extended GUEST-IN
+ permit udp any eq bootpc any eq bootps
+ deny ip any 192.168.54.64 0.0.0.63
+ deny ip any 192.168.54.128 0.0.0.15
+ permit ip any any
+ip access-list extended TO-PRINTZONE
+ permit tcp 192.168.54.64 0.0.0.31 192.168.54.136 0.0.0.7 eq 9100
+ permit tcp 192.168.54.64 0.0.0.31 192.168.54.136 0.0.0.7 eq 515
+ permit tcp 192.168.54.64 0.0.0.31 192.168.54.136 0.0.0.7 eq 631
+ permit tcp 192.168.54.96 0.0.0.15 192.168.54.136 0.0.0.7 eq 9100
+ permit tcp 192.168.54.96 0.0.0.15 192.168.54.136 0.0.0.7 eq 515
+ permit tcp 192.168.54.96 0.0.0.15 192.168.54.136 0.0.0.7 eq 631
+ permit icmp 192.168.54.64 0.0.0.31 192.168.54.136 0.0.0.7
+ permit icmp 192.168.54.96 0.0.0.15 192.168.54.136 0.0.0.7
+ deny ip any any
+ipv6 access-list TO-PRINTZONE6
+ permit tcp FD54:ACDE:2026:20::/64 FD54:ACDE:2026:50::/64 eq 9100
+ permit tcp FD54:ACDE:2026:30::/64 FD54:ACDE:2026:50::/64 eq 9100
+ permit icmp FD54:ACDE:2026:20::/64 FD54:ACDE:2026:50::/64
+ permit icmp FD54:ACDE:2026:30::/64 FD54:ACDE:2026:50::/64
+ deny ipv6 any any
+ipv6 access-list GUEST6-IN
+ permit ipv6 any FD54:ACDE:2026:40::/64
+ permit ipv6 any FD54:ACDE:2026:FFFF::/64
+ deny ipv6 any FD54:ACDE:2026::/48
+ permit ipv6 any any
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
+BORDER-R1#   
