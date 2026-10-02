@@ -40,8 +40,8 @@ Tlou Amusement Arcade & Family Fun Centre is a small entertainment venue combini
 | Milestone | Date | Status |
 |---|---|---|
 | Project commencement | 14 Aug 2026 | ✅ |
-| Milestone 1 — Client Design Review | 28 Aug 2026 | ✅ this submission |
-| Milestone 2 — Client Implementation Review | 02 Oct 2026 | ⬜ pending |
+| Milestone 1 — Client Design Review | 28 Aug 2026 | ✅ done |
+| Milestone 2 — Client Implementation Review | 02 Oct 2026 | ✅ done |
 | Final submission | 16 Oct 2026 | ⬜ pending |
 
 ## Quick links
