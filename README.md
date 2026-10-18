@@ -32,6 +32,7 @@ Tlou Amusement Arcade & Family Fun Centre is a small entertainment venue combini
 ├── testing/
 │   ├── connectivity-tests.md          # test plan + results
 │   └── screenshots/                   # evidence captures
+├── Technical Report                   # design and implementation 
 └── reflection.md                      # short reflection on the completed project
 ```
 
@@ -42,7 +43,7 @@ Tlou Amusement Arcade & Family Fun Centre is a small entertainment venue combini
 | Project commencement | 14 Aug 2026 | ✅ |
 | Milestone 1 — Client Design Review | 28 Aug 2026 | ✅ done |
 | Milestone 2 — Client Implementation Review | 02 Oct 2026 | ✅ done |
-| Final submission | 16 Oct 2026 | ⬜ pending |
+| Final submission | 16 Oct 2026 | ✅ done |
 
 ## Quick links
 
